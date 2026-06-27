@@ -27,9 +27,3 @@ We are building a **dedicated thin-client device + minimal Rust OS** where the h
 - Target: ARM64 (phones, dev boards, custom hardware)
 - Planned: QUIC/WebTransport + AV1 streaming + hardware attestation + predictive input
 
-### Quick Start
-```bash
-git clone https://github.com/YOURNAME/aether-terminal.git
-cd aether-terminal
-cargo bootimage
-# Run in QEMU (instructions in docs/)
