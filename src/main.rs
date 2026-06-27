@@ -3,6 +3,7 @@
 #![feature(custom_test_frameworks)]
 #![test_runner(test_runner)]
 mod network;
+mod input;
 use core::panic::PanicInfo;
 use bootloader::{BootInfo, entry_point};
 use embedded_graphics::prelude::*;
@@ -24,6 +25,10 @@ fn panic(info: &PanicInfo) -> ! {
 #[no_mangle]
 fn kernel_main(boot_info: &'static mut BootInfo) -> ! {
     network::connect_to_cloud();
+    input::handle_touch(420, 690);   // Example touch
+input::handle_voice(b"hello from TheRustyGoat");
+input::handle_camera(b"fake frame data");
+input::update_local_overlay();
     // ====================== INITIALIZATION ======================
     serial_println!("☁️  Cloud-Phone Terminal v0.1 booting...");
 
